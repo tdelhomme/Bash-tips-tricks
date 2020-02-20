@@ -5,9 +5,10 @@ Tips and tricks (mainly for comp. gen.) in the Bash language
   * input1: the txt file containing in rows the SRRXXXXX identifiers of the runs to download
   * input2: output folder
   * command line example: `./script_dwn_to_bam.sh SraAccList_SRP041470.txt BAM_SRP041470`
-  * with
+
+Example of input list file:
   ```
-  [tdelhomme@fsupeksvr SRA]$ head SraAccList_SRP041470.txt
+[tdelhomme@fsupeksvr SRA]$ head SraAccList_SRP041470.txt
 SRR1264612
 SRR1264613
 SRR1264614
