@@ -7,16 +7,9 @@ Tips and tricks (mainly for comp. gen.) in the Bash language
   * command line example: `./script_dwn_to_bam.sh SraAccList_SRP041470.txt BAM_SRP041470`
 
 Example of input list file:
-  ```
-[tdelhomme@fsupeksvr SRA]$ head SraAccList_SRP041470.txt
+```
+[tdelhomme@fsupeksvr SRA]$ head -n3 SraAccList_SRP041470.txt
 SRR1264612
 SRR1264613
 SRR1264614
-SRR1264615
-SRR1264616
-SRR1264617
-SRR1264618
-SRR1264619
-SRR1264620
-SRR1264621
-  ```
+```
