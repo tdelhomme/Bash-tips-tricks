@@ -13,3 +13,4 @@ SRR1264612
 SRR1264613
 SRR1264614
 ```
+This page gives information about how to download dbGaP data using sratoolkit: [link](https://www.ncbi.nlm.nih.gov/sra/docs/sra-dbgap-download/)
