@@ -15,3 +15,6 @@ SRR1264614
 ```
 This page gives information about how to download dbGaP data using sratoolkit: [link](https://www.ncbi.nlm.nih.gov/sra/docs/sra-dbgap-download/)  
 Note: to get the SRA accession list, we should use the **SRA Run selector** tool, available on the NCBI website
+
+* Intersection of 2 files: `grep -Fxf "file1" "file2" > intersection
+`
