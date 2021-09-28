@@ -18,3 +18,12 @@ Note: to get the SRA accession list, we should use the **SRA Run selector** tool
 
 * Intersection of 2 files: `grep -Fxf "file1" "file2" > intersection
 `
+* Transfer remote files (whole folder) using **lftp** (e.g. from CNAG server)
+```
+ lftp -u username,'password' sftp://ftp.cnag.cat
+ set ftp:ssl-allow false
+ set ftp:passive-mode off
+ set ssl:verify-certificate no
+  
+ mirror --verbose -c --verbose /PATH/TO/REMOTE/FOLDER /PATH/TO/LOCAL/FOLDER
+```
