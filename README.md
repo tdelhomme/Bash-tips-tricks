@@ -36,4 +36,15 @@ samtools depth  file.bam  |  awk '{sum+=$3} END { print "Average = ",sum/NR}'
 ```
 But this is **extremely** time intensive for large BAM (like WGS). A better approach is to use `samtools idxstats`, which returns for each sequenced chromosome, the number of mapped reads. Then, with the combination of a second bash command that computes the estimated mean lenght of the reads, one can compute an approximation of the coverage in a few seconds:
 ```
+declare -i meanreadlength
+meanreadlength=`samtools view file.bam | head -n 1000000 | cut -f 10 | perl -ne 'chomp;print length($_) . "\n"' | sort | awk 'BEGIN {total=0} {total += $1} END { print int(total/NR) }'`
+
+declare -i numberreads
+numberreads=`samtools idxstats file.bam | awk 'BEGIN {total=0} {total += $3} END {print total}'`
+
+declare -i lengthsequence
+lengthsequence=`samtools idxstats file.bam | awk 'BEGIN {total=0} {total += $2} END {print total}'`
+
+meancoverage=$((meanreadlength * numberreads / lengthsequence))
+echo $meancoverage
 ```
