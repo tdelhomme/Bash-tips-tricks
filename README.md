@@ -27,3 +27,5 @@ Note: to get the SRA accession list, we should use the **SRA Run selector** tool
   
  mirror --verbose -c --verbose /PATH/TO/REMOTE/FOLDER /PATH/TO/LOCAL/FOLDER
 ```
+
+* Compute mean coverage from a particular BAM file
