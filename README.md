@@ -29,3 +29,8 @@ Note: to get the SRA accession list, we should use the **SRA Run selector** tool
 ```
 
 * Compute mean coverage from a particular BAM file
+
+One way is to use `samtools depth` that returns the depth at each sequenced position:
+```
+samtools depth  file.bam  |  awk '{sum+=$3} END { print "Average = ",sum/NR}'
+```
