@@ -34,3 +34,6 @@ One way is to use `samtools depth` that returns the depth at each sequenced posi
 ```
 samtools depth  file.bam  |  awk '{sum+=$3} END { print "Average = ",sum/NR}'
 ```
+But this is **extremely** time intensive for large BAM (like WGS). A better approach is to use `samtools idxstats`, which returns for each sequenced chromosome, the number of mapped reads. Then, with the combination of a second bash command that computes the estimated mean lenght of the reads, one can compute an approximation of the coverage in a few seconds:
+```
+```
