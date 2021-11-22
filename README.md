@@ -48,3 +48,8 @@ lengthsequence=`samtools idxstats file.bam | awk 'BEGIN {total=0} {total += $2} 
 meancoverage=$((meanreadlength * numberreads / lengthsequence))
 echo $meancoverage
 ```
+
+* Compute number of genomic positions in a bed file
+```
+cat file.bed | awk -F'\t' 'BEGIN{SUM=0}{ SUM+=$3-$2 }END{print SUM}'
+```
