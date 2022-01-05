@@ -53,3 +53,8 @@ echo $meancoverage
 ```
 cat file.bed | awk -F'\t' 'BEGIN{SUM=0}{ SUM+=$3-$2 }END{print SUM}'
 ```
+
+* Extract nucleotides in a FASTA file at given positions
+```
+samtools faidx genome.fasta chr:start-end
+```
