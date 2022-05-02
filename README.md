@@ -34,7 +34,7 @@ One way is to use `samtools depth` that returns the depth at each sequenced posi
 ```
 samtools depth  file.bam  |  awk '{sum+=$3} END { print "Average = ",sum/NR}'
 ```
-But this is **extremely** time intensive for large BAM (like WGS or high coverage sequencing, e.g. target seq -- totally depends on the total number of reads). A better approach is to use `samtools idxstats`, which returns for each sequenced chromosome, the number of mapped reads. Then, with the combination of a second bash command that computes the estimated mean lenght of the reads, one can compute an approximation of the coverage in a few seconds:
+But this is **extremely** time intensive for large BAM (like WGS or high coverage sequencing, e.g. target seq -- totally depends on the total number of reads). A better approach is to use `samtools idxstats`, which returns for each sequenced chromosome, the number of mapped reads. Then, with the combination of a second bash command that computes the estimated mean lenght of the reads, one can compute an approximation of the coverage in a few seconds. Note that we are using one approximation -- the number of lines i.e. reads used to compute mean read length, with this, we do not need to read all the BAM file, this should probably be adapted depending on the coverage:
 ```
 declare -i meanreadlength
 meanreadlength=`samtools view file.bam | head -n 1000000 | cut -f 10 | perl -ne 'chomp;print length($_) . "\n"' | sort | awk 'BEGIN {total=0} {total += $1} END { print int(total/NR) }'`
