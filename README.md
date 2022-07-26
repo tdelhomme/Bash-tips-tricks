@@ -60,3 +60,13 @@ samtools faidx genome.fasta chr:start-end
 ```
 
 ## CONDA tips and tricks
+
+* Create a new environment
+```
+conda create --name environment_name
+```
+
+* Install a package inside an existing environment
+```
+conda install -n environment_name -c channel_name package_to_install
+```
