@@ -58,3 +58,4 @@ cat file.bed | awk -F'\t' 'BEGIN{SUM=0}{ SUM+=$3-$2 }END{print SUM}'
 ```
 samtools faidx genome.fasta chr:start-end
 ```
+* CONDA tips and tricks
