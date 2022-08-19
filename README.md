@@ -51,6 +51,14 @@ meancoverage=$((meanreadlength * numberreads / lengthsequence))
 echo $meancoverage
 ```
 
+* Re-align a BAM file to a new reference
+
+```
+# based on https://www.biostars.org/p/326714/
+java -jar picard.jar SamToFastq I=<file_alnMAP.bam> FASTQ=<filemap_1.fq> SECOND_END_FASTQ=<filemap_2.fq>
+bwa mem -R <read_group> <ref2.fa> <filemap_1.fq> <filemap_1.fq>
+```
+
 ## Random
 
 * Compute number of genomic positions in a bed file
