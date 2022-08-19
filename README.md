@@ -51,6 +51,8 @@ meancoverage=$((meanreadlength * numberreads / lengthsequence))
 echo $meancoverage
 ```
 
+## Random
+
 * Compute number of genomic positions in a bed file
 ```
 cat file.bed | awk -F'\t' 'BEGIN{SUM=0}{ SUM+=$3-$2 }END{print SUM}'
