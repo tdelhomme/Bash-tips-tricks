@@ -72,6 +72,9 @@ samtools faidx genome.fasta chr:start-end
 ```
 
 * Convert a Fastq to a Fasta file
+```
+sed -n '1~4s/^@/>/p;2~4p' input.fastq > input.fasta
+```
 
 ## CONDA tips and tricks
 
